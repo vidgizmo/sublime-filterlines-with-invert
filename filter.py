@@ -18,10 +18,10 @@ class PromptFilterToLinesCommand(sublime_plugin.WindowCommand):
         if search_type == 'string':
             prompt = "%s to lines %s: " % (filter_verb, 'containing')
             self.invert_search = False
-        else if search_type == 'string_invert':
+        elif search_type == 'string_invert':
             prompt = "%s to lines %s: " % (filter_verb, 'not containing')
             self.invert_search = True
-        else if search_type == 'regex_invert':
+        elif search_type == 'regex_invert':
             prompt = "%s to lines %s: " % (filter_verb, 'not matching' )
             self.invert_search = True
         else:
