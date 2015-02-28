@@ -8,7 +8,7 @@ settings_path = 'Filter Lines.sublime-settings'
 
 class PromptFilterToLinesCommand(sublime_plugin.WindowCommand):
 
-    def run(self, search_type = 'string'):
+    def run(self, search_type='string'):
         self._run(search_type, "filter_to_lines", "Filter")
 
     def _run(self, search_type, filter_command, filter_verb):
@@ -22,7 +22,7 @@ class PromptFilterToLinesCommand(sublime_plugin.WindowCommand):
             prompt = "%s to lines %s: " % (filter_verb, 'not containing')
             self.invert_search = True
         elif search_type == 'regex_invert':
-            prompt = "%s to lines %s: " % (filter_verb, 'not matching' )
+            prompt = "%s to lines %s: " % (filter_verb, 'not matching')
             self.invert_search = True
         else:
             prompt = "%s to lines %s: " % (filter_verb, 'matching')
@@ -33,8 +33,8 @@ class PromptFilterToLinesCommand(sublime_plugin.WindowCommand):
         self.search_text = search_text
         self.save_settings()
         if self.window.active_view():
-            self.window.active_view().run_command(self.filter_command, { 
-                "needle": self.search_text, "search_type": self.search_type })
+            self.window.active_view().run_command(self.filter_command, {
+                "needle": self.search_text, "search_type": self.search_type})
 
     def load_settings(self):
         self.settings = sublime.load_settings(settings_path)
